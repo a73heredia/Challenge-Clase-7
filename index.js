@@ -23,7 +23,7 @@ app.get('/products/:id', async(req, res) => {
     let limit = products.length;
 
     if(id <= limit) {
-        let productId = products.filter(pto => pto.id === id);
+        let productId = Product_Manager.getProductById(id);
         res.send(productId);
     } else {
         res.send({error: 'El Producto No Existe'})
